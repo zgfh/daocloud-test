@@ -15,16 +15,16 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
     #print "headers:%s "% request.headers
+    real_ip=''
+    forward_ip=''
     if 'X-Forwarded-For' in  request.headers:
-        print "X-Forwarded-For: %s"% request.headers['X-Forwarded-For']
-    else:
-        print "X-Forwarded-For: "
+        forward_ip=request.headers['X-Forwarded-For']
+    print "X-Forwarded-For: %s".format(forward_ip)
     if 'X-Real-IP' in  request.headers:
-        print "X-Real-IP: %s"% request.headers['X-Real-IP']
-    else:
-        print "X-Real-IP: "
+        real_ip=request.headers['X-Real-IP']
+    print "X-Real-IP: %s".format(real_ip)
 
-    return 'Hello World!'
+    return str({'real_ip':real_ip,'forward_ip':forward_ip})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
