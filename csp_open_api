@@ -1,0 +1,784 @@
+{
+  "basePath": "/v1", 
+  "definitions": {}, 
+  "info": {
+    "title": "CSP Platform API Reference", 
+    "version": "1.0.0"
+  }, 
+  "parameters": {}, 
+  "paths": {
+    "/openapi/v1/instances": {
+      "get": {
+        "consumes": "application/json", 
+        "description": "\u83b7\u53d6\u6240\u6709\u5b9e\u4f8b", 
+        "parameters": [
+          {
+            "in": "query", 
+            "name": "service_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "in": "query", 
+            "name": "space_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "in": "query", 
+            "name": "region_id", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "in": "query", 
+            "name": "zone_id", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "\u5b9e\u4f8b\u4fe1\u606f", 
+            "schema": {
+              "items": {
+                "properties": {
+                  "created_at": {
+                    "format": "float", 
+                    "type": "number"
+                  }, 
+                  "id": {
+                    "type": "string"
+                  }, 
+                  "information": {
+                    "items": {
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        }, 
+                        "type": {
+                          "type": "string"
+                        }, 
+                        "value": {
+                          "type": "string"
+                        }
+                      }, 
+                      "required": [
+                        "name", 
+                        "type", 
+                        "value"
+                      ], 
+                      "type": "object"
+                    }, 
+                    "type": "array"
+                  }, 
+                  "metadata": {
+                    "type": "string"
+                  }, 
+                  "name": {
+                    "type": "string"
+                  }, 
+                  "organization_guid": {
+                    "type": "string"
+                  }, 
+                  "plan_id": {
+                    "type": "string"
+                  }, 
+                  "service_id": {
+                    "type": "string"
+                  }, 
+                  "space_guid": {
+                    "type": "string"
+                  }, 
+                  "status": {
+                    "type": "string"
+                  }, 
+                  "updated_at": {
+                    "format": "float", 
+                    "type": "number"
+                  }
+                }, 
+                "required": [
+                  "created_at", 
+                  "id", 
+                  "information", 
+                  "name", 
+                  "organization_guid", 
+                  "plan_id", 
+                  "service_id", 
+                  "space_guid", 
+                  "status", 
+                  "updated_at"
+                ], 
+                "type": "object"
+              }, 
+              "type": "array"
+            }
+          }, 
+          "404": {
+            "description": "\u627e\u4e0d\u5230\u5bf9\u5e94\u7684\u5b9e\u4f8b", 
+            "schema": {
+              "properties": {
+                "error_info": {
+                  "type": "string"
+                }, 
+                "error_type": {
+                  "default": "error_not_found", 
+                  "type": "string"
+                }
+              }, 
+              "type": "object"
+            }
+          }
+        }, 
+        "summary": "\u83b7\u53d6\u6240\u6709\u5b9e\u4f8b", 
+        "tags": [
+          "instance"
+        ]
+      }, 
+      "post": {
+        "consumes": "application/json", 
+        "description": "\u83b7\u53d6\u6240\u6709\u5b9e\u4f8b", 
+        "parameters": [
+          {
+            "in": "body", 
+            "name": "body", 
+            "schema": {
+              "properties": {
+                "created_at": {
+                  "format": "float", 
+                  "type": "number"
+                }, 
+                "id": {
+                  "type": "string"
+                }, 
+                "information": {
+                  "items": {
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      }, 
+                      "type": {
+                        "type": "string"
+                      }, 
+                      "value": {
+                        "type": "string"
+                      }
+                    }, 
+                    "required": [
+                      "name", 
+                      "type", 
+                      "value"
+                    ], 
+                    "type": "object"
+                  }, 
+                  "type": "array"
+                }, 
+                "metadata": {
+                  "type": "string"
+                }, 
+                "name": {
+                  "type": "string"
+                }, 
+                "organization_guid": {
+                  "type": "string"
+                }, 
+                "plan_id": {
+                  "type": "string"
+                }, 
+                "service_id": {
+                  "type": "string"
+                }, 
+                "space_guid": {
+                  "type": "string"
+                }, 
+                "status": {
+                  "type": "string"
+                }, 
+                "updated_at": {
+                  "format": "float", 
+                  "type": "number"
+                }
+              }, 
+              "required": [
+                "created_at", 
+                "id", 
+                "information", 
+                "name", 
+                "organization_guid", 
+                "plan_id", 
+                "service_id", 
+                "space_guid", 
+                "status", 
+                "updated_at"
+              ], 
+              "type": "object"
+            }
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "\u5b9e\u4f8b\u4fe1\u606f", 
+            "schema": {
+              "properties": {
+                "created_at": {
+                  "format": "float", 
+                  "type": "number"
+                }, 
+                "id": {
+                  "type": "string"
+                }, 
+                "information": {
+                  "items": {
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      }, 
+                      "type": {
+                        "type": "string"
+                      }, 
+                      "value": {
+                        "type": "string"
+                      }
+                    }, 
+                    "required": [
+                      "name", 
+                      "type", 
+                      "value"
+                    ], 
+                    "type": "object"
+                  }, 
+                  "type": "array"
+                }, 
+                "metadata": {
+                  "type": "string"
+                }, 
+                "name": {
+                  "type": "string"
+                }, 
+                "organization_guid": {
+                  "type": "string"
+                }, 
+                "plan_id": {
+                  "type": "string"
+                }, 
+                "service_id": {
+                  "type": "string"
+                }, 
+                "space_guid": {
+                  "type": "string"
+                }, 
+                "status": {
+                  "type": "string"
+                }, 
+                "updated_at": {
+                  "format": "float", 
+                  "type": "number"
+                }
+              }, 
+              "required": [
+                "created_at", 
+                "id", 
+                "information", 
+                "name", 
+                "organization_guid", 
+                "plan_id", 
+                "service_id", 
+                "space_guid", 
+                "status", 
+                "updated_at"
+              ], 
+              "type": "object"
+            }
+          }, 
+          "404": {
+            "description": "\u627e\u4e0d\u5230\u5bf9\u5e94\u7684\u5b9e\u4f8b", 
+            "schema": {
+              "properties": {
+                "error_info": {
+                  "type": "string"
+                }, 
+                "error_type": {
+                  "default": "error_not_found", 
+                  "type": "string"
+                }
+              }, 
+              "type": "object"
+            }
+          }
+        }, 
+        "summary": "\u83b7\u53d6\u6240\u6709\u5b9e\u4f8b", 
+        "tags": [
+          "instance"
+        ]
+      }
+    }, 
+    "/openapi/v1/instances/{instance_id}": {
+      "delete": {
+        "consumes": "application/json", 
+        "description": "\u5220\u9664\u67d0\u4e2a\u5b9e\u4f8b", 
+        "parameters": [
+          {
+            "in": "path", 
+            "name": "instance_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "201": {
+            "description": "\u6b64\u6b21\u8bf7\u6c42\u5df2\u88ab\u63a5\u53d7", 
+            "schema": {
+              "properties": {
+                "created_at": {
+                  "format": "float", 
+                  "type": "number"
+                }, 
+                "id": {
+                  "type": "string"
+                }, 
+                "information": {
+                  "items": {
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      }, 
+                      "type": {
+                        "type": "string"
+                      }, 
+                      "value": {
+                        "type": "string"
+                      }
+                    }, 
+                    "required": [
+                      "name", 
+                      "type", 
+                      "value"
+                    ], 
+                    "type": "object"
+                  }, 
+                  "type": "array"
+                }, 
+                "metadata": {
+                  "type": "string"
+                }, 
+                "name": {
+                  "type": "string"
+                }, 
+                "organization_guid": {
+                  "type": "string"
+                }, 
+                "plan_id": {
+                  "type": "string"
+                }, 
+                "service_id": {
+                  "type": "string"
+                }, 
+                "space_guid": {
+                  "type": "string"
+                }, 
+                "status": {
+                  "type": "string"
+                }, 
+                "updated_at": {
+                  "format": "float", 
+                  "type": "number"
+                }
+              }, 
+              "required": [
+                "created_at", 
+                "id", 
+                "information", 
+                "name", 
+                "organization_guid", 
+                "plan_id", 
+                "service_id", 
+                "space_guid", 
+                "status", 
+                "updated_at"
+              ], 
+              "type": "object"
+            }
+          }, 
+          "404": {
+            "description": "\u627e\u4e0d\u5230\u5bf9\u5e94\u7684\u5b9e\u4f8b", 
+            "schema": {
+              "properties": {
+                "error_info": {
+                  "type": "string"
+                }, 
+                "error_type": {
+                  "default": "error_not_found", 
+                  "type": "string"
+                }
+              }, 
+              "type": "object"
+            }
+          }, 
+          "409": {
+            "description": "\u5b9e\u4f8b\u5220\u9664\u5931\u8d25", 
+            "schema": {
+              "properties": {
+                "error_info": {
+                  "type": "string"
+                }, 
+                "error_type": {
+                  "default": "error_already_exists", 
+                  "type": "string"
+                }
+              }, 
+              "type": "object"
+            }
+          }
+        }, 
+        "summary": "\u5220\u9664\u67d0\u4e2a\u5b9e\u4f8b", 
+        "tags": [
+          "instance"
+        ]
+      }, 
+      "get": {
+        "consumes": "application/json", 
+        "description": "\u83b7\u53d6\u67d0\u4e2a\u5b9e\u4f8b\u7684\u4fe1\u606f", 
+        "parameters": [
+          {
+            "in": "path", 
+            "name": "instance_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "\u5b9e\u4f8b\u4fe1\u606f", 
+            "schema": {
+              "properties": {
+                "created_at": {
+                  "format": "float", 
+                  "type": "number"
+                }, 
+                "id": {
+                  "type": "string"
+                }, 
+                "information": {
+                  "items": {
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      }, 
+                      "type": {
+                        "type": "string"
+                      }, 
+                      "value": {
+                        "type": "string"
+                      }
+                    }, 
+                    "required": [
+                      "name", 
+                      "type", 
+                      "value"
+                    ], 
+                    "type": "object"
+                  }, 
+                  "type": "array"
+                }, 
+                "metadata": {
+                  "type": "string"
+                }, 
+                "name": {
+                  "type": "string"
+                }, 
+                "organization_guid": {
+                  "type": "string"
+                }, 
+                "plan_id": {
+                  "type": "string"
+                }, 
+                "service_id": {
+                  "type": "string"
+                }, 
+                "space_guid": {
+                  "type": "string"
+                }, 
+                "status": {
+                  "type": "string"
+                }, 
+                "updated_at": {
+                  "format": "float", 
+                  "type": "number"
+                }
+              }, 
+              "required": [
+                "created_at", 
+                "id", 
+                "information", 
+                "name", 
+                "organization_guid", 
+                "plan_id", 
+                "service_id", 
+                "space_guid", 
+                "status", 
+                "updated_at"
+              ], 
+              "type": "object"
+            }
+          }, 
+          "404": {
+            "description": "\u627e\u4e0d\u5230\u5bf9\u5e94\u7684\u5b9e\u4f8b", 
+            "schema": {
+              "properties": {
+                "error_info": {
+                  "type": "string"
+                }, 
+                "error_type": {
+                  "default": "error_not_found", 
+                  "type": "string"
+                }
+              }, 
+              "type": "object"
+            }
+          }
+        }, 
+        "summary": "\u83b7\u53d6\u67d0\u4e2a\u5b9e\u4f8b\u7684\u4fe1\u606f", 
+        "tags": [
+          "instance"
+        ]
+      }
+    }, 
+    "/openapi/v1/plans": {
+      "get": {
+        "consumes": "application/json", 
+        "description": "\u83b7\u53d6\u670d\u52a1\u6240\u6709\u89c4\u683c\u4fe1\u606f", 
+        "parameters": [
+          {
+            "in": "query", 
+            "name": "service_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "in": "query", 
+            "name": "space_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "in": "query", 
+            "name": "region_id", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "in": "query", 
+            "name": "zone_id", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "\u670d\u52a1\u89c4\u683c\u4fe1\u606f", 
+            "schema": {
+              "properties": {
+                "description": {
+                  "type": "string"
+                }, 
+                "id": {
+                  "type": "string"
+                }, 
+                "name": {
+                  "type": "string"
+                }, 
+                "schemas": {
+                  "type": "string"
+                }
+              }, 
+              "required": [
+                "description", 
+                "id", 
+                "name"
+              ], 
+              "type": "object"
+            }
+          }
+        }, 
+        "summary": "\u83b7\u53d6\u670d\u52a1\u6240\u6709\u89c4\u683c\u4fe1\u606f", 
+        "tags": [
+          "plan"
+        ]
+      }
+    }, 
+    "/openapi/v1/plans/{plan_id}": {
+      "get": {
+        "consumes": "application/json", 
+        "description": "\u83b7\u53d6\u670d\u52a1\u89c4\u683c\u4fe1\u606f", 
+        "parameters": [
+          {
+            "in": "path", 
+            "name": "plan_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "\u89c4\u683c\u4fe1\u606f", 
+            "schema": {
+              "properties": {
+                "description": {
+                  "type": "string"
+                }, 
+                "id": {
+                  "type": "string"
+                }, 
+                "name": {
+                  "type": "string"
+                }, 
+                "schemas": {
+                  "type": "string"
+                }
+              }, 
+              "required": [
+                "description", 
+                "id", 
+                "name"
+              ], 
+              "type": "object"
+            }
+          }, 
+          "404": {
+            "description": "\u627e\u4e0d\u5230\u5bf9\u5e94\u7684\u670d\u52a1\u89c4\u683c", 
+            "schema": {
+              "properties": {
+                "error_info": {
+                  "type": "string"
+                }, 
+                "error_type": {
+                  "default": "error_not_found", 
+                  "type": "string"
+                }
+              }, 
+              "type": "object"
+            }
+          }
+        }, 
+        "summary": "\u83b7\u53d6\u670d\u52a1\u89c4\u683c\u4fe1\u606f", 
+        "tags": [
+          "plan"
+        ]
+      }
+    }, 
+    "/openapi/v1/services": {
+      "get": {
+        "consumes": "application/json", 
+        "description": "\u83b7\u53d6\u6240\u6709\u670d\u52a1\u4fe1\u606f", 
+        "parameters": [
+          {
+            "in": "query", 
+            "name": "space_id", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "in": "query", 
+            "name": "region_id", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "in": "query", 
+            "name": "zone_id", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "\u670d\u52a1\u4fe1\u606f", 
+            "schema": {
+              "properties": {
+                "description": {
+                  "type": "string"
+                }, 
+                "id": {
+                  "type": "string"
+                }, 
+                "name": {
+                  "type": "string"
+                }
+              }, 
+              "required": [
+                "description", 
+                "id", 
+                "name"
+              ], 
+              "type": "object"
+            }
+          }
+        }, 
+        "summary": "\u83b7\u53d6\u6240\u6709\u670d\u52a1\u4fe1\u606f", 
+        "tags": [
+          "service"
+        ]
+      }
+    }, 
+    "/openapi/v1/services/{service_id}": {
+      "get": {
+        "consumes": "application/json", 
+        "description": "\u83b7\u53d6\u670d\u52a1\u4fe1\u606f", 
+        "parameters": [
+          {
+            "in": "path", 
+            "name": "service_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "\u670d\u52a1\u4fe1\u606f", 
+            "schema": {
+              "properties": {
+                "description": {
+                  "type": "string"
+                }, 
+                "id": {
+                  "type": "string"
+                }, 
+                "name": {
+                  "type": "string"
+                }
+              }, 
+              "required": [
+                "description", 
+                "id", 
+                "name"
+              ], 
+              "type": "object"
+            }
+          }, 
+          "404": {
+            "description": "\u627e\u4e0d\u5230\u5bf9\u5e94\u7684\u670d\u52a1", 
+            "schema": {
+              "properties": {
+                "error_info": {
+                  "type": "string"
+                }, 
+                "error_type": {
+                  "default": "error_not_found", 
+                  "type": "string"
+                }
+              }, 
+              "type": "object"
+            }
+          }
+        }, 
+        "summary": "\u83b7\u53d6\u670d\u52a1\u4fe1\u606f", 
+        "tags": [
+          "service"
+        ]
+      }
+    }
+  }, 
+  "swagger": "2.0", 
+  "tags": []
+}
